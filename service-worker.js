@@ -1,4 +1,4 @@
-const CACHE_NAME = "isupply-pwa-shell-v1";
+const CACHE_NAME = "isupply-pwa-shell-v2";
 const SHELL = [
   "./",
   "./index.html",
