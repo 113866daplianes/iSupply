@@ -1,0 +1,21 @@
+APPS SCRIPT CHANGE REQUIRED FOR THE GITHUB PAGES WRAPPER
+
+In your spreadsheet-bound Apps Script project, replace ONLY the existing doGet() function with:
+
+function doGet() {
+  return HtmlService.createHtmlOutputFromFile("Index")
+    .setTitle("DES iSupply")
+    .addMetaTag("viewport", "width=device-width, initial-scale=1")
+    .setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
+}
+
+This allows the current Apps Script interface to be displayed inside the GitHub Pages PWA shell. Do not remove or replace any other backend functions.
+
+After saving, deploy a NEW version of the Apps Script web app. Set:
+- Execute as: Me (the spreadsheet owner / intended app operator)
+- Who has access: Anyone (the kiosk has public request and read-only history functions; admin operations still require the app's administrator PIN/session)
+
+Copy the deployed Web App URL ending in /exec. Put that exact URL into app-config.js at appsScriptUrl. Do not put PINs, PIN hashes, or administrator tokens in app-config.js.
+
+SECURITY NOTE
+XFrameOptionsMode.ALLOWALL permits other websites to frame this web app. The app uses a public kiosk model, but administrators must continue to protect all modifying operations with the server-side PIN/session validation already in Code.gs. Do not expose administrator PINs or hashes. Public transaction history displays personnel and transaction details, as already intended in the current design.

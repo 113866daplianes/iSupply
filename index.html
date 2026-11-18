@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#8d1726">
+  <meta name="description" content="DES e-Inventory Hub — Supply Request Kiosk">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="iSupply">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32.png">
+  <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="./styles.css">
+  <title>DES iSupply</title>
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand">
+      <img src="./assets/isupply-logo.png" alt="DES iSupply logo" class="logo">
+      <div class="brand-copy">
+        <div class="school">DAPLIAN ELEMENTARY SCHOOL</div>
+        <h1>iSupply</h1>
+        <p>DES e-Inventory Hub · Supply Request Kiosk</p>
+      </div>
+    </div>
+    <a class="hub-link" href="https://113866daplianes.github.io/ides-apps-hub/" target="_blank" rel="noopener noreferrer">
+      <span class="hub-icon">DES<br><b>iApps</b></span>
+      <span>Go to iApps Dashboard ↗</span>
+    </a>
+  </header>
+
+  <main class="main-shell">
+    <section class="statusbar" aria-live="polite">
+      <span id="connectionState" class="status-dot"></span>
+      <span id="connectionText">Starting iSupply…</span>
+      <button id="installButton" class="install-button" hidden>Install iSupply</button>
+      <a id="directOpen" class="direct-link" href="#" target="_blank" rel="noopener" hidden>Open iSupply directly</a>
+    </section>
+
+    <section id="offlineNotice" class="offline-notice" hidden>
+      <h2>You're offline</h2>
+      <p>The iSupply app shell is available, but inventory, request submission, approvals, restocking, and transaction history require an internet connection.</p>
+      <button id="retryButton" class="retry-button">Try again</button>
+    </section>
+
+    <div class="frame-wrap" id="frameWrap">
+      <iframe id="appFrame" title="DES iSupply application" allow="clipboard-read; clipboard-write; fullscreen" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      <div id="frameLoading" class="frame-loading"><div class="spinner"></div><strong>Loading iSupply…</strong><span>Connecting to the school inventory system</span></div>
+    </div>
+  </main>
+
+  <footer>DES iSupply · Internal Inventory System</footer>
+  <script src="./app-config.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
