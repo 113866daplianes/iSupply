@@ -41,7 +41,7 @@
 
   // Keep the PWA shell installable; installation can be started from the browser's Install App menu.
   if ("serviceWorker" in navigator && location.protocol === "https:") {
-    window.addEventListener("load", () => navigator.serviceWorker.register("./service-worker.js", {scope:"./"})
+    window.addEventListener("load", () => navigator.serviceWorker.register("./service-worker.js", {scope:new URL("./", location.href).pathname})
       .catch(err => console.warn("Service worker registration failed", err)));
   }
   loadApp();
